@@ -1,0 +1,59 @@
+# =========================================
+# RailConnect Root Git Ignore
+# =========================================
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.venv/
+venv/
+ENV/
+env/
+
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Frontend build
+frontend/dist/
+frontend/build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Test / coverage
+.coverage
+htmlcov/
+.pytest_cache/
+coverage/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# Local AWS / deployment files
+*.pem
+*.key
+
+# Screenshots generated temporarily
+*.psd
