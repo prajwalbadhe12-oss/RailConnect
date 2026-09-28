@@ -16,8 +16,8 @@ def get_trains():
 
     return jsonify({
         "status": "success",
-        "data_type": "demo",
-        "message": "Demonstration railway data",
+        "data_type": "database",
+        "message": "Railway data retrieved from database",
         "count": len(trains),
         "trains": trains
     }), 200
@@ -35,7 +35,7 @@ def get_train(train_id):
 
     return jsonify({
         "status": "success",
-        "data_type": "demo",
+        "data_type": "database",
         "train": train
     }), 200
 
@@ -55,7 +55,7 @@ def search():
 
     return jsonify({
         "status": "success",
-        "data_type": "demo",
+        "data_type": "database",
         "count": len(trains),
         "trains": trains
     }), 200
