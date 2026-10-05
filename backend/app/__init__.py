@@ -45,11 +45,13 @@ def create_app():
     from app.routes.server_routes import server_bp
     from app.routes.train_routes import train_bp
     from app.routes.booking_routes import booking_bp
+    from app.routes.schedule_routes import schedule_bp
 
     app.register_blueprint(health_bp)
     app.register_blueprint(server_bp)
     app.register_blueprint(train_bp)
     app.register_blueprint(booking_bp)
+    app.register_blueprint(schedule_bp)
 
     # ---------------------------------
     # Request Logging

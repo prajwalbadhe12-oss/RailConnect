@@ -1,4 +1,4 @@
-from datetime import time
+from datetime import time, timedelta
 
 from app.db import get_db_connection
 
@@ -7,15 +7,31 @@ def _format_time(value):
     """
     Convert database TIME values into HH:MM format.
 
+    PyMySQL may return MySQL TIME values as:
+        datetime.time
+        datetime.timedelta
+        string
+
     Examples:
         17:00:00 -> 17:00
         08:35:00 -> 08:35
         8:35:00  -> 08:35
     """
 
+    # Handle datetime.time
     if isinstance(value, time):
         return value.strftime("%H:%M")
 
+    # Handle PyMySQL datetime.timedelta
+    if isinstance(value, timedelta):
+        total_seconds = int(value.total_seconds())
+
+        hours = (total_seconds // 3600) % 24
+        minutes = (total_seconds % 3600) // 60
+
+        return f"{hours:02d}:{minutes:02d}"
+
+    # Handle string values
     value = str(value).strip()
 
     parts = value.split(":")
